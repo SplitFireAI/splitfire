@@ -1,0 +1,51 @@
+{
+  "id": "splitfire-agent",
+  "name": "SplitFire",
+  "version": "1.0.0",
+  "description": "Music assistant for musicians, producers and engineers: exact music theory tools (scales, chords, keys, tempo maths), audio analysis (loudness, tempo and key estimates), optional stem separation, and project file tools. Backed by Onde Inference; ships its own TUI and speaks ACP over stdio.",
+  "repository": "https://github.com/splitfireai/splitfire-agent",
+  "authors": [
+    "SplitFire AI"
+  ],
+  "license": "Apache-2.0",
+  "license_url": "https://github.com/splitfireai/splitfire-agent/blob/main/LICENSE",
+  "distribution": {
+    "binary": {
+      "darwin-aarch64": {
+        "archive": "https://github.com/splitfireai/splitfire-agent/releases/download/v1.0.0/splitfire-agent-darwin-arm64.tar.gz",
+        "cmd": "./splitfire-agent",
+        "args": [
+          "--acp"
+        ]
+      },
+      "darwin-x86_64": {
+        "archive": "https://github.com/splitfireai/splitfire-agent/releases/download/v1.0.0/splitfire-agent-darwin-x64.tar.gz",
+        "cmd": "./splitfire-agent",
+        "args": [
+          "--acp"
+        ]
+      },
+      "linux-aarch64": {
+        "archive": "https://github.com/splitfireai/splitfire-agent/releases/download/v1.0.0/splitfire-agent-linux-arm64.tar.gz",
+        "cmd": "./splitfire-agent",
+        "args": [
+          "--acp"
+        ]
+      },
+      "linux-x86_64": {
+        "archive": "https://github.com/splitfireai/splitfire-agent/releases/download/v1.0.0/splitfire-agent-linux-x64.tar.gz",
+        "cmd": "./splitfire-agent",
+        "args": [
+          "--acp"
+        ]
+      },
+      "windows-x86_64": {
+        "archive": "https://github.com/splitfireai/splitfire-agent/releases/download/v1.0.0/splitfire-agent-windows-x64.zip",
+        "cmd": "splitfire-agent.exe",
+        "args": [
+          "--acp"
+        ]
+      }
+    }
+  }
+}
