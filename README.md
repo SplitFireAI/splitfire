@@ -139,6 +139,13 @@ cargo clippy --all-targets -- -D warnings
 cargo test --locked
 ```
 
+These are exactly what CI runs. To catch the formatting check before you push, enable the
+tracked pre-commit hook once per clone:
+
+```sh
+git config core.hooksPath .githooks
+```
+
 SplitFire is built on the Onde Agent Platform crates in the
 [`onde-ed`](https://github.com/ondeinference/ed) workspace, checked out next to this repository:
 `ed-acp` (the ACP server: sessions, auth, the turn loop, approval, workspace tools),

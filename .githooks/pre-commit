@@ -1,0 +1,15 @@
+#!/bin/sh
+# SplitFire pre-commit hook: catch the things CI fails on, before you push.
+# Enable with: git config core.hooksPath .githooks
+
+set -e
+
+# Only check staged Rust files; skip if none are staged.
+if git diff --cached --name-only --diff-filter=ACM | grep -q '\.rs$'; then
+    echo "pre-commit: cargo fmt --check"
+    if ! cargo fmt -- --check; then
+        echo
+        echo "Formatting check failed. Run 'cargo fmt' and re-stage your changes." >&2
+        exit 1
+    fi
+fi
