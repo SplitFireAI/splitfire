@@ -1,0 +1,30 @@
+[package]
+name = "splitfire-agent"
+version = "1.0.0"
+edition = "2024"
+license = "Apache-2.0"
+description = "Music-domain ACP agent: theory, production, industry, culture and live shows, backed by any OpenAI-compatible chat completions API"
+repository = "https://github.com/splitfireai/splitfire-agent"
+
+[dependencies]
+# Onde Agent Platform: the ACP server, terminal UI and MCP layer, from the onde-ed workspace.
+ed-acp = { version = "1.1.0" }
+ed-acp-tui = { version = "1.1.0" }
+ed-mcp = { version = "1.1.0", features = ["test-server"] }
+agent-client-protocol = "2.2"
+anyhow = "1.0.104"
+async-trait = "0.1"
+directories = "6.0.0"
+ebur128 = "0.1.10"
+realfft = "3.5.0"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.151"
+symphonia = { version = "0.6.1", features = ["mp3", "flac", "ogg", "vorbis", "wav", "pcm", "aac", "isomp4", "aiff", "alac", "mkv"] }
+tokio = { version = "1.53.1", features = ["full"] }
+tracing = "0.1.44"
+uuid = { version = "1.27.0", features = ["v4"] }
+
+[dev-dependencies]
+ed-acp-testkit = { version = "1.1.0" }
+base64 = "0.23.1"
+hound = "3.5.1"
