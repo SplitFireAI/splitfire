@@ -1,8 +1,8 @@
 {
   "id": "splitfire-agent",
-  "name": "SplitFire",
+  "name": "SplitFire AI",
   "version": "1.0.0",
-  "description": "Music assistant for musicians, producers and engineers: exact music theory tools (scales, chords, keys, tempo maths), audio analysis (loudness, tempo and key estimates), optional stem separation, and project file tools. Backed by Onde Inference; ships its own TUI and speaks ACP over stdio.",
+  "description": "Music assistant for musicians, producers and engineers: exact music theory tools (scales, chords, keys, tempo maths), audio analysis (loudness, tempo and key estimates), optional stem separation, and project file tools.",
   "repository": "https://github.com/splitfireai/splitfire-agent",
   "authors": [
     "SplitFire AI"

@@ -175,6 +175,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8b75356056920673b02621b35afd0f7dda9306d03c79a30f5c56c44cf256e3de"
 
 [[package]]
+name = "async-trait"
+version = "0.1.92"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "82f6aeea286b8eb4dd3431a1be1b59d290ace00f5bfd8e2a159bc2a05e2c1667"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 3.0.6",
+]
+
+[[package]]
 name = "atomic-waker"
 version = "1.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -620,6 +631,71 @@ dependencies = [
  "dasp_frame",
  "dasp_sample",
  "smallvec",
+]
+
+[[package]]
+name = "ed-acp"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3acecd5520efb32a7bebd6d02b865de3d785ba4ebd32ede8a4f595ae4e5e9e79"
+dependencies = [
+ "agent-client-protocol",
+ "anyhow",
+ "async-trait",
+ "base64",
+ "directories",
+ "ed-mcp",
+ "futures",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "tokio",
+ "tokio-util",
+ "tracing",
+ "tracing-subscriber",
+ "uuid",
+]
+
+[[package]]
+name = "ed-acp-testkit"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e9a99f0cd1c4c72a2235edc42f03c5b8a7b0d18e29d0064c467a1120423af252"
+dependencies = [
+ "serde_json",
+ "tokio",
+ "uuid",
+]
+
+[[package]]
+name = "ed-acp-tui"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1241d2bc5655c8c880f3dbd57746d29cbc25fe616869346583d73ffbf8821b73"
+dependencies = [
+ "agent-client-protocol",
+ "anyhow",
+ "crossterm",
+ "futures",
+ "ratatui",
+ "tokio",
+]
+
+[[package]]
+name = "ed-mcp"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "578adbef751312c45b43fdd8615da51bc45adc7ddf039f9dd2030369e2b07ff6"
+dependencies = [
+ "agent-client-protocol",
+ "anyhow",
+ "futures",
+ "http",
+ "rmcp",
+ "serde_json",
+ "tokio",
+ "tokio-util",
+ "tracing",
 ]
 
 [[package]]
@@ -2010,13 +2086,18 @@ version = "3.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ab5023804cbe0304cbe06197ac16e645a0a0d0ffa2953bf735c15c2fa0213350"
 dependencies = [
+ "base64",
+ "bytes",
  "chrono",
  "futures",
+ "http",
  "indexmap 2.14.2",
  "pin-project-lite",
  "process-wrap",
+ "reqwest",
  "serde",
  "serde_json",
+ "sse-stream",
  "thiserror",
  "tokio",
  "tokio-stream",
@@ -2427,24 +2508,35 @@ version = "1.0.0"
 dependencies = [
  "agent-client-protocol",
  "anyhow",
+ "async-trait",
  "base64",
- "crossterm",
  "directories",
  "ebur128",
- "futures",
+ "ed-acp",
+ "ed-acp-testkit",
+ "ed-acp-tui",
+ "ed-mcp",
  "hound",
- "ratatui",
  "realfft",
- "reqwest",
- "rmcp",
  "serde",
  "serde_json",
  "symphonia",
  "tokio",
- "tokio-util",
  "tracing",
- "tracing-subscriber",
  "uuid",
+]
+
+[[package]]
+name = "sse-stream"
+version = "0.2.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c25ac7aff0abd1dbc474536e40416e1102c7dd9bfba0b9861c6d357f835dcfb4"
+dependencies = [
+ "bytes",
+ "futures-util",
+ "http-body",
+ "http-body-util",
+ "pin-project-lite",
 ]
 
 [[package]]

@@ -139,21 +139,23 @@ cargo clippy --all-targets -- -D warnings
 cargo test --locked
 ```
 
-The integration tests run the real binary against a scripted mock model, plus a stub MCP server
-(`src/bin/mcp_stdio_stub.rs`). `tests/live.rs` talks to Onde Cloud and is skipped unless
-`ONDE_API_KEY` is set.
+SplitFire is built on the Onde Agent Platform crates in the
+[`onde-ed`](https://github.com/ondeinference/ed) workspace, checked out next to this repository:
+`ed-acp` (the ACP server: sessions, auth, the turn loop, approval, workspace tools),
+`ed-acp-tui` (the terminal UI) and `ed-mcp` (MCP over `rmcp`). This crate holds the music.
+
+The integration tests run the real binary against a scripted mock model and a test MCP server
+(`src/bin/mcp_stdio_stub.rs`, from `ed-mcp`). `tests/acp_compliance.rs` runs the platform's ACP
+conformance suite from `ed-acp-testkit` plus SplitFire's own tests. `tests/live.rs` talks to Onde
+Cloud and is skipped unless `ONDE_API_KEY` is set.
 
 ```
-src/main.rs            flags, mode dispatch, ACP handlers
-src/agent.rs           sessions, turn loop, persistence
-src/prompt.rs          system prompt, slash commands, prompt content
-src/llm.rs             streaming Onde Cloud client
-src/session_store.rs   on-disk sessions
-src/mcp.rs             MCP client (client-supplied servers + demucs)
-src/tools/             workspace, theory and audio tools
+src/main.rs            flags and mode dispatch (ACP, TUI, --setup, --list-models)
+src/profile.rs         the ed-acp Profile: identity, tools, commands, built-in demucs
+src/prompt.rs          system prompt and slash commands
+src/tools/             theory, audio analysis and separation-library tools
 src/theory/            pitch, interval, scale, chord, key, tempo
 src/audio/             decoding and analysis
-src/tui.rs             terminal UI
 registry/              ACP registry submission
 ```
 
