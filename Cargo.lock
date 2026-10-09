@@ -2504,7 +2504,7 @@ dependencies = [
 
 [[package]]
 name = "splitfire-agent"
-version = "1.0.0"
+version = "1.1.0"
 dependencies = [
  "agent-client-protocol",
  "anyhow",
