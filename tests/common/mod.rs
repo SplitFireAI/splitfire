@@ -7,7 +7,9 @@ use std::path::Path;
 use agent_client_protocol::AcpAgentConfig;
 
 #[allow(unused_imports)]
-pub use ed_acp_testkit::{MODEL, MockStats, Script, Step, TEST_KEY, Target, start_mock_llm, temp_dir};
+pub use ed_acp_testkit::{
+    MODEL, MockStats, Script, Step, TEST_KEY, Target, start_mock_llm, temp_dir,
+};
 
 /// 5 workspace tools + 6 theory tools + analyze_audio + list_separations.
 pub const BASE_TOOL_COUNT: usize = 13;
