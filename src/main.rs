@@ -7,12 +7,6 @@
 //! it speaks ACP over stdio. Set ONDE_API_KEY (`app-id:app-secret`) or run `--setup`.
 //! SPLITFIRE_YOLO=1 skips permission prompts. Logs go to stderr (RUST_LOG).
 
-mod audio;
-mod profile;
-mod prompt;
-mod theory;
-mod tools;
-
 use std::io::IsTerminal;
 use std::path::PathBuf;
 use std::sync::Arc;
@@ -20,7 +14,7 @@ use std::sync::Arc;
 use ed_acp::{LlmConfig, ServeOptions, cli};
 use ed_acp_tui::TuiConfig;
 
-use profile::{INFO, SplitFire};
+use splitfire_agent::{INFO, SplitFire};
 
 const USAGE: &str = "\
 Usage: splitfire-agent [--acp] [--yolo] [--list-models] [--root <path>...] [--setup] [--version]
