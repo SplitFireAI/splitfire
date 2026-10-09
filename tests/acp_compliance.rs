@@ -7,8 +7,8 @@ mod common;
 
 use std::path::{Path, PathBuf};
 
-use ed_acp_testkit::{Raw, Step, mock, read_pid, stub_server, temp_dir, tool_text, wait_dead};
 use common::{BASE_TOOL_COUNT, target};
+use ed_acp_testkit::{Raw, Step, mock, read_pid, stub_server, temp_dir, tool_text, wait_dead};
 use serde_json::json;
 
 ed_acp_testkit::conformance_suite!(target);
